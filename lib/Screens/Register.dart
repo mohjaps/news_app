@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Utls/Colors.dart';
 
 import 'Login.dart';
 import 'utalities.dart';
@@ -58,7 +59,7 @@ class Register extends StatelessWidget {
                 child: const Text(
                   " Login Now",
                   style: TextStyle(
-                    color: Color.fromARGB(255, 172, 120, 9),
+                    color: MajorColoors.secondaryGolden,
                     fontWeight: FontWeight.w900,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Utls/Colors.dart';
 
 import 'Register.dart';
 import 'utalities.dart';
@@ -37,7 +38,7 @@ class Login extends StatelessWidget {
                 'Forget Password?',
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  color: Color.fromARGB(255, 172, 120, 9),
+                  color: MajorColoors.secondaryGolden,
                   fontWeight: FontWeight.w900,
                 ),
               ),
@@ -62,7 +63,7 @@ class Login extends StatelessWidget {
                 child: const Text(
                   "Register Now",
                   style: TextStyle(
-                    color: Color.fromARGB(255, 172, 120, 9),
+                    color: MajorColoors.secondaryGolden,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
