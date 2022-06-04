@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Utls/Colors.dart';
 
+import '../Models/User.dart';
+import '../Services/auth.dart';
+import 'Home.dart';
 import 'Login.dart';
 import 'utalities.dart';
 
@@ -9,6 +12,29 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _firstNameController = TextEditingController();
+    final TextEditingController _lastNameController = TextEditingController();
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    void RegisterUser() {
+      User model = User.Register(
+          _emailController.text,
+          _firstNameController.text,
+          _lastNameController.text,
+          _passwordController.text);
+
+      Auth.register(model).then((value) {
+        if (value) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+          );
+        } else {
+          print('error');
+        }
+      });
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
@@ -21,27 +47,31 @@ class Register extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 23),
             ),
-            const InputField(
+            InputField(
+              controller: _firstNameController,
               text: 'First Name',
               icon: Icons.person_outline,
               isPassword: false,
             ),
-            const InputField(
+            InputField(
+              controller: _lastNameController,
               text: 'Last Name',
               icon: Icons.person_outline,
               isPassword: false,
             ),
-            const InputField(
+            InputField(
+              controller: _emailController,
               text: 'Email Address',
               icon: Icons.email_outlined,
               isPassword: false,
             ),
-            const InputField(
+            InputField(
+              controller: _passwordController,
               text: 'Password',
               icon: Icons.lock_outlined,
               isPassword: true,
             ),
-            const SubmitBtn(text: 'REGISTER'),
+            SubmitBtn(text: 'REGISTER', submitBTN: RegisterUser),
           ],
         ),
         Container(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Utls/Colors.dart';
-
+import '../Models/User.dart';
+import '../Services/auth.dart';
+import 'Home.dart';
 import 'Register.dart';
 import 'utalities.dart';
 
@@ -9,6 +11,27 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    void LobinUser() {
+      User model = User.Login(_emailController.text, _passwordController.text);
+      if (_emailController.text != null || _passwordController != null) {
+        Auth.login(model)
+            .then((value) {
+          if (value) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const Home()),
+            );
+          } else {
+            print('error');
+          }
+        });
+      } else {
+        print('Empty Values Isn\'t Allowed');
+      }
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
@@ -21,12 +44,14 @@ class Login extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 23),
             ),
-            const InputField(
+            InputField(
+              controller: _emailController,
               text: 'Email Address',
               icon: Icons.email_outlined,
               isPassword: false,
             ),
-            const InputField(
+            InputField(
+              controller: _passwordController,
               text: 'Password',
               icon: Icons.lock_outlined,
               isPassword: true,
@@ -43,7 +68,7 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
-            const SubmitBtn(text: 'LOGIN'),
+            SubmitBtn(text: 'LOGIN', submitBTN: LobinUser),
           ],
         ),
         Container(
