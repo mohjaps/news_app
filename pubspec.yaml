@@ -45,6 +45,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   dio: ^4.0.6
+  line_awesome_flutter: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,6 +62,9 @@ flutter:
     - "assets/images/bg.png"
     - "assets/images/logo.png"
     - "assets/images/graphic-forgot.png"
+    - "assets/images/gettyimages-627909282_1200xx5760-3246-0-197.jpg"
+    - "assets/images/Johnny-Depp-Cutting-News-e1609230062237.jpg"
+    - "assets/images/how-google-maps-knows-youre-braking-hard-so-it-can-find-safer-routes-162191_1.jpg"
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

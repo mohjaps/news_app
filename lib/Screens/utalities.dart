@@ -1,5 +1,8 @@
 // Input Field
 import 'package:flutter/material.dart';
+import 'package:news_app/Screens/Settings.dart';
+import 'package:news_app/Screens/aboutus.dart';
+import 'package:news_app/Screens/contactus.dart';
 import 'package:news_app/Utls/Colors.dart';
 
 import '../Services/auth.dart';
@@ -150,10 +153,10 @@ class AppDrawer extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: const [
                     SizedBox(width: 10),
-                    Icon(Icons.favorite),
+                    Icon(Icons.group),
                     SizedBox(width: 10),
                     Text(
-                      'Favorite',
+                      'About Us',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -162,7 +165,7 @@ class AppDrawer extends StatelessWidget {
                   ],
                 ),
                 onTap: () {
-                  if (tabfunc != null) tabfunc!(Container(), 'Test');
+                  if (tabfunc != null) tabfunc!(const AboutUs(), 'About Us');
                 },
               ),
               ListTile(
@@ -171,10 +174,10 @@ class AppDrawer extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: const [
                     SizedBox(width: 10),
-                    Icon(Icons.favorite),
+                    Icon(Icons.contact_support),
                     SizedBox(width: 10),
                     Text(
-                      'Favorite',
+                      'Contact Us',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -183,7 +186,29 @@ class AppDrawer extends StatelessWidget {
                   ],
                 ),
                 onTap: () {
-                  if (tabfunc != null) tabfunc!(Container(), 'Test');
+                  if (tabfunc != null)
+                    tabfunc!(const ContactUs(), 'Contact Us');
+                },
+              ),
+              ListTile(
+                iconColor: MajorColoors.primary,
+                leading: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    SizedBox(width: 10),
+                    Icon(Icons.settings),
+                    SizedBox(width: 10),
+                    Text(
+                      'Settings',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  if (tabfunc != null) tabfunc!(const Settings(), 'Settings');
                 },
               ),
               ListTile(
