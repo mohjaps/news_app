@@ -6,5 +6,6 @@ class MajorColoors {
 }
 
 class MajorAuth {
-  static const String firebaseKey = '2dc9e03ee46149b69719b5cabeaec4fe';
+  static const String firebaseKey = 'AIzaSyDmKWG0GcHGOoGUt16shb4471lskp-t5mI';
+  static const String newsKey = "2dc9e03ee46149b69719b5cabeaec4fe";
 }

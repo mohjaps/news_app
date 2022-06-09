@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:news_app/Screens/page.dart';
 import '../Models/profile_list_item.dart';
 
 class Settings extends StatelessWidget {
@@ -54,5 +53,14 @@ class Settings extends StatelessWidget {
         ))
       ],
     );
+  }
+}
+
+class PPage extends StatelessWidget {
+  const PPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

@@ -8,6 +8,7 @@ import 'package:news_app/Utls/Colors.dart';
 import '../Services/auth.dart';
 import 'Login.dart';
 import 'NewsScreen.dart';
+import 'newss.dart';
 
 class InputField extends StatelessWidget {
   final String text;
@@ -135,7 +136,7 @@ class AppDrawer extends StatelessWidget {
                     Icon(Icons.favorite),
                     SizedBox(width: 10),
                     Text(
-                      'Favorite',
+                      'News',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -144,7 +145,7 @@ class AppDrawer extends StatelessWidget {
                   ],
                 ),
                 onTap: () {
-                  if (tabfunc != null) tabfunc!(Container(), 'Test');
+                  if (tabfunc != null) tabfunc!(const Test(), 'News');
                 },
               ),
               ListTile(

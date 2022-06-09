@@ -6,7 +6,7 @@ import '../Models/news.dart';
 class NewsService {
   static final Dio _dio = Dio();
   static final String _baseUrl = 'https://newsapi.org/v2/';
-  static final String _apiKey = MajorAuth.firebaseKey;
+  static final String _apiKey = MajorAuth.newsKey;
   static final String _topHeadlines = 'top-headlines';
   static final String _everything = 'everything';
   static final String _sources = 'sources';
