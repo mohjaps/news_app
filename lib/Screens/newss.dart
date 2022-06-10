@@ -11,6 +11,7 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  Sql sqldb = new Sql();
   List<NewsData>? dataList = null;
   @override
   void initState() {
@@ -46,16 +47,34 @@ class _TestState extends State<Test> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(
-                            top: 20, left: 17, bottom: 10),
-                        child: Text(
-                          "${dataList![index].news}",
-                          style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(
+                                top: 20, left: 17, bottom: 10),
+                            child: Text(
+                              "${dataList![index].news}",
+                              style: const TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          IconButton(
+                              onPressed: () async {
+                                int response = await sqldb.deleteData(
+                                    "DELETE FROM news WHERE id=${dataList![index].id}");
+                                if (response > 0) {
+                                  dataList!.removeWhere((element) =>
+                                      element.id == dataList![index].id);
+                                  setState(() {});
+                                }
+                              },
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ))
+                        ],
                       ),
                     ],
                   );
