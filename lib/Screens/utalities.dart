@@ -9,6 +9,7 @@ import '../Services/auth.dart';
 import 'Login.dart';
 import 'NewsScreen.dart';
 import 'newss.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InputField extends StatelessWidget {
   final String text;
@@ -99,7 +100,7 @@ class AppDrawer extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(
-                  'Username',
+                  Auth.signedUser!.Email,
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
@@ -229,7 +230,9 @@ class AppDrawer extends StatelessWidget {
                     ),
                   ],
                 ),
-                onTap: () {
+                onTap: () async {
+                  final prefs = await SharedPreferences.getInstance();
+      prefs.remove('token');
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (builder) => Login()));
                 },
