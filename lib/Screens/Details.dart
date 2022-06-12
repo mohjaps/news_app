@@ -68,8 +68,8 @@ class _NewsDetailsState extends State<NewsDetails> {
                       );
                       if (response > 0) {
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => Test()));
+                        // Navigator.of(context).pushReplacement(
+                        //     MaterialPageRoute(builder: (context) => Test()));
                       }
                     },
                     icon: Icon(
