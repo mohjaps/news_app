@@ -42,8 +42,7 @@ class _TestState extends State<Test> {
                         child: Image(
                           height: 190,
                           width: double.infinity,
-                          image: AssetImage(
-                              "assets/images/${dataList![index].image}"),
+                          image: NetworkImage("${dataList![index].image}"),
                           fit: BoxFit.cover,
                         ),
                       ),
