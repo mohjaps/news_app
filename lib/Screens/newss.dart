@@ -23,7 +23,15 @@ class _TestState extends State<Test> {
 
   @override
   Widget build(BuildContext context) {
+    // return Container(
+    //     child: IconButton(
+    //         onPressed: () async {
+    //           List<Map> respons = await sqldb.readData("SELECT * FROM 'news'");
+    //           print(respons);
+    //         },
+    //         icon: Icon(Icons.delete)));
     return Container(
+        margin: EdgeInsets.all(10),
         child: dataList == null
             ? Center(
                 child: CircularProgressIndicator(),
@@ -33,19 +41,20 @@ class _TestState extends State<Test> {
                 shrinkWrap: true,
                 itemCount: dataList!.length,
                 itemBuilder: (context, index) {
+                  print('Image ' + dataList![index].image);
                   return Column(
                     children: [
                       ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15)),
-                        child: Image(
-                          height: 190,
-                          width: double.infinity,
-                          image: NetworkImage("${dataList![index].image}"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15)),
+                          // child: Image(
+                          //   height: 190,
+                          //   // width: doub,
+                          //   image: NetworkImage(dataList![index].image),
+                          //   fit: BoxFit.cover,
+                          // ),
+                          child: Image.network(dataList![index].image)),
                       Row(
                         children: [
                           Container(
@@ -53,6 +62,9 @@ class _TestState extends State<Test> {
                                 top: 20, left: 17, bottom: 10),
                             child: Text(
                               "${dataList![index].news}",
+                              // overflow: TextOverflow.clip,
+                              // maxLines: 1,
+                              // softWrap: false,
                               style: const TextStyle(
                                   fontSize: 15,
                                   color: Colors.black,

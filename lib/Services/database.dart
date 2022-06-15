@@ -13,7 +13,7 @@ class Database {
           news: response[i]['new'] ?? '',
           question: response[i]['question'] ?? '',
           answer: response[i]['answer'] ?? '',
-          image: response[i]['img'] ?? '');
+          image: response[i]['image'] ?? '');
       data.add(news);
     }
     return data;
