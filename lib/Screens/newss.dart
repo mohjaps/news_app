@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import '../Models/sqldb.dart';
@@ -61,10 +63,7 @@ class _TestState extends State<Test> {
                             margin: const EdgeInsets.only(
                                 top: 20, left: 17, bottom: 10),
                             child: Text(
-                              "${dataList![index].news}",
-                              // overflow: TextOverflow.clip,
-                              // maxLines: 1,
-                              // softWrap: false,
+                              "${dataList![index].news.substring(0, min(40, dataList![index].news.length))}",
                               style: const TextStyle(
                                   fontSize: 15,
                                   color: Colors.black,
